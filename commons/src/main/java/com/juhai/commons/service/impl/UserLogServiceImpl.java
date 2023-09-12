@@ -2,8 +2,8 @@ package com.juhai.commons.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.juhai.commons.entity.UserLog;
-import com.juhai.commons.service.UserLogService;
 import com.juhai.commons.mapper.UserLogMapper;
+import com.juhai.commons.service.UserLogService;
 import org.springframework.stereotype.Service;
 
 /**

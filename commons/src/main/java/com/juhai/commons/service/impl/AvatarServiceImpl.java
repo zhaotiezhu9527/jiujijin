@@ -2,8 +2,8 @@ package com.juhai.commons.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.juhai.commons.entity.Avatar;
-import com.juhai.commons.service.AvatarService;
 import com.juhai.commons.mapper.AvatarMapper;
+import com.juhai.commons.service.AvatarService;
 import org.springframework.stereotype.Service;
 
 /**

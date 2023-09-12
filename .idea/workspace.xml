@@ -5,7 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b4e9c43-ff0f-4cb8-8f37-d78d596b2ab3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/SiteConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/request/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/request/UpdatePwdRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/request/UserRegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/Avatar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/MessageText.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/Paramter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/UserLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/entity/Version.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/mapper/AvatarMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/mapper/MessageTextMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/mapper/ParamterMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/mapper/UserLogMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/mapper/VersionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/AvatarService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/MessageTextService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/ParamterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/UserLogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/VersionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/impl/AvatarServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/impl/MessageTextServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/impl/ParamterServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/impl/UserLogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/juhai/commons/service/impl/VersionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/resources/mapper/AvatarMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/resources/mapper/MessageTextMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/resources/mapper/ParamterMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/resources/mapper/UserLogMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commons/src/main/resources/mapper/VersionMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +60,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -30,12 +79,42 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/Users/Administrator/IdeaProjects/jiujijin/api/src/main/java/com/juhai/api/controller/request",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "File.Encoding",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\IdeaProjects\jiujijin\api\src\main\java\com\juhai\api\controller\request" />
+      <recent name="C:\Users\Administrator\IdeaProjects\jiujijin\api\src\main\java\com\juhai\api\controller" />
+      <recent name="C:\Users\Administrator\IdeaProjects\jiujijin\commons\src\main\java\com\juhai\commons\mapper" />
+      <recent name="C:\Users\Administrator\IdeaProjects\jiujijin\commons\src\main\java\com\juhai\commons\service\impl" />
+      <recent name="C:\Users\Administrator\IdeaProjects\jiujijin\commons\src\main\java\com\juhai\commons\service" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.juhai.api.ApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,7 +123,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694497231183</updated>
+      <workItem from="1694497232260" duration="2701000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

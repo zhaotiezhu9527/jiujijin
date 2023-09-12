@@ -1,7 +1,7 @@
 package com.juhai.commons.service;
 
-import com.juhai.commons.entity.Version;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.juhai.commons.entity.Version;
 
 /**
 * @author Administrator

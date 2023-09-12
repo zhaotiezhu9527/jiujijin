@@ -1,7 +1,7 @@
 package com.juhai.commons.mapper;
 
-import com.juhai.commons.entity.Avatar;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.juhai.commons.entity.Avatar;
 
 /**
 * @author Administrator

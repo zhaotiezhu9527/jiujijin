@@ -2,8 +2,8 @@ package com.juhai.commons.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.juhai.commons.entity.Version;
-import com.juhai.commons.service.VersionService;
 import com.juhai.commons.mapper.VersionMapper;
+import com.juhai.commons.service.VersionService;
 import org.springframework.stereotype.Service;
 
 /**

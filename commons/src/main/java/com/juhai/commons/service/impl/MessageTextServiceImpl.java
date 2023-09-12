@@ -3,8 +3,8 @@ package com.juhai.commons.service.impl;
 import cn.hutool.core.collection.CollStreamUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.juhai.commons.entity.MessageText;
-import com.juhai.commons.service.MessageTextService;
 import com.juhai.commons.mapper.MessageTextMapper;
+import com.juhai.commons.service.MessageTextService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
