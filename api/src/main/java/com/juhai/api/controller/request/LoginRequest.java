@@ -12,10 +12,10 @@ import javax.validation.constraints.Pattern;
 @ApiModel(value = "登录请求类", description = "登录请求参数")
 public class LoginRequest {
 
-    @NotNull(message = "validation.user.register.username")
-    @Pattern(regexp = RegConstant.USER_NAME_REG, message = "validation.user.register.username")
-    @ApiModelProperty(value = "用户名", example = "dunaifen123", required = true)
-    private String userName;
+    @NotNull(message = "system.phone.validerror")
+    @Pattern(regexp = RegConstant.USER_PHONE_REG, message = "system.phone.validerror")
+    @ApiModelProperty(value = "手机号", example = "46456456", required = true)
+    private String phone;
 
     @NotNull(message = "validation.user.register.loginpwd")
     @Pattern(regexp = RegConstant.USER_PWD_REG, message = "validation.user.register.loginpwd")

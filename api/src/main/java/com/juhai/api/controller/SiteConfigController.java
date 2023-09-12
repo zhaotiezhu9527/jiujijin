@@ -36,20 +36,10 @@ public class SiteConfigController {
     @Autowired
     private VersionService versionService;
 
-    @Value("${im.plat}")
-    private String plat;
-
-
     @ApiOperation(value = "获取系统配置")
     @GetMapping("/config")
     public R config(HttpServletRequest httpServletRequest) {
-        Map<String, String> allParamByMap = paramterService.getAllParamByMap();
-        Map<String, MessageText> allMessageMap = messageTextService.getAllMessageMap();
-
         JSONObject obj = new JSONObject();
-        obj.put("webDomain", allParamByMap.get("web_domain"));
-        obj.put("about", allMessageMap.get("about").getContent());
-        obj.put("plat", plat);
         return R.ok().put("data", obj);
     }
 
