@@ -1,0 +1,39 @@
+server:
+  port: 9522
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://rm-gs5o2g3papr65togk9o.mysql.singapore.rds.aliyuncs.com:3306/im?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowMultiQueries=true
+      username: local
+      password: a0gC9&2EGoOY^MJZ
+  redis:
+    host: r-gs5nsu05rwrseovmrmpd.redis.singapore.rds.aliyuncs.com
+    port: 6379
+    database: 7
+    password: 30Q84d8GE4LBYzbM
+# 不需要登录验证的url
+login:
+  auth:
+    urls:
+      - /user/register
+      - /user/login
+      - /system/config
+#token失效时间
+token:
+  expire: 15
+#网易
+im:
+  plat: a1
+  url: https://api.netease.im
+  appkey: fdeee5472da804a1da4ff6a3c96ab986
+  appSecret: 08995fac687e
+#腾讯
+IMConfig:
+  txUrl: https://console.tim.qq.com
+  sdkAppId: 1600002539
+  secretKey: e05fb6e437025f12385953543c200b3ec90502e6286fdf69eb40a12d0269bdec
+  identifier: administrator
