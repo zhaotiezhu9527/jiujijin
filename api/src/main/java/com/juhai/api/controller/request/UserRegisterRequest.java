@@ -52,7 +52,7 @@ public class UserRegisterRequest {
      */
     @NotNull(message = "system.param.err")
     @ApiModelProperty(value = "生日", example = "2003-03-08", required = true)
-    private Date birth;
+    private String birth;
 
     /**
      * 身份证号码或护照号
@@ -95,4 +95,18 @@ public class UserRegisterRequest {
     @NotNull(message = "system.param.err")
     @ApiModelProperty(value = "银行卡号", example = "银行卡号", required = true)
     private String bankCard;
+
+    /**
+     * 详细地址
+     */
+    @NotNull(message = "system.param.err")
+    @ApiModelProperty(value = "详细地址", example = "详细地址", required = true)
+    private String address;
+
+    /**
+     * 邮箱
+     */
+    @NotNull(message = "system.param.err")
+    @ApiModelProperty(value = "邮箱", example = "邮箱", required = true)
+    private String email;
 }

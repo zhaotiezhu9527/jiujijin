@@ -1,23 +1,23 @@
 package com.juhai.api.controller;
 
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.lang.Validator;
 import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.extra.servlet.ServletUtil;
+import cn.hutool.extra.validation.ValidationUtil;
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.google.i18n.phonenumbers.NumberParseException;
-import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.google.i18n.phonenumbers.Phonenumber;
 import com.juhai.api.controller.request.LoginRequest;
-import com.juhai.api.controller.request.UpdatePwdRequest;
 import com.juhai.api.controller.request.UserRegisterRequest;
+import com.juhai.api.controller.request.UserYijianRequest;
 import com.juhai.api.utils.JwtUtils;
 import com.juhai.commons.entity.Opinion;
 import com.juhai.commons.entity.User;
 import com.juhai.commons.entity.UserLog;
+import com.juhai.commons.entity.Yijian;
 import com.juhai.commons.service.*;
 import com.juhai.commons.utils.MsgUtil;
 import com.juhai.commons.utils.R;
@@ -70,12 +70,21 @@ public class UserController {
     @Autowired
     private OpinionService opinionService;
 
+    @Autowired
+    private YijianService yijianService;
+
     @Transactional(rollbackFor = Exception.class)
     @ApiOperation(value = "注册")
     @PostMapping("/register")
     public R registerV2(@Validated UserRegisterRequest request, HttpServletRequest httpServletRequest) throws Exception {
         String userName = request.getPhone().toLowerCase();
         String clientIP = ServletUtil.getClientIPByHeader(httpServletRequest, "x-original-forwarded-for");
+
+        // 验证邮箱格式
+        boolean isEmail = Validator.isEmail(request.getEmail());
+        if (!isEmail) {
+            return R.error(MsgUtil.get("validation.user.email"));
+        }
         // 查询用户名是否存在
         long exist = userService.count(new LambdaQueryWrapper<User>().eq(User::getUserName, userName));
         if (exist > 0) {
@@ -89,7 +98,7 @@ public class UserController {
         user.setLoginPwd(SecureUtil.md5(request.getLoginPwd()));
         user.setGender(request.getGender());
         user.setNationality(request.getNationality());
-        user.setBirth(request.getBirth());
+        user.setBirth(DateUtil.parseDate(request.getBirth()));
         user.setIdCard(request.getIdCard());
         user.setWork(request.getWork());
         user.setCity(request.getCity());
@@ -102,6 +111,8 @@ public class UserController {
         user.setLastTime(now);
         user.setLastIp(clientIP);
         user.setModifyTime(now);
+        user.setEmail(request.getEmail());
+        user.setAddress(request.getAddress());
         userService.save(user);
 
         // 登录日志
@@ -128,6 +139,23 @@ public class UserController {
         String userName = JwtUtils.getUserName(httpServletRequest);
         redisTemplate.delete(RedisKeyUtil.UserTokenKey(userName));
         return R.ok();
+    }
+
+    @ApiOperation(value = "提交意见")
+    @PostMapping("/yijian/apply")
+    public R yijianApply(@Validated UserYijianRequest request, HttpServletRequest httpServletRequest) {
+        String userName = JwtUtils.getUserName(httpServletRequest);
+        String key = RedisKeyUtil.UserYijianKey(userName);
+        if (redisTemplate.hasKey(key)) {
+            return R.error(MsgUtil.get("system.user.pinfan"));
+        }
+        Yijian yijian = new Yijian();
+        yijian.setUserName(userName);
+        yijian.setContent(request.getContent());
+        yijian.setCreateTime(new Date());
+        yijianService.save(yijian);
+        redisTemplate.opsForValue().set(RedisKeyUtil.UserYijianKey(userName), "111", 1, TimeUnit.DAYS);
+        return R.ok(MsgUtil.get("system.user.yijian"));
     }
 
     @ApiOperation(value = "申请救济金")
@@ -161,7 +189,7 @@ public class UserController {
     public R opinionSchedule(HttpServletRequest httpServletRequest) {
         String userName = JwtUtils.getUserName(httpServletRequest);
         Opinion opinion = opinionService.getOne(new LambdaQueryWrapper<Opinion>().eq(Opinion::getUserName, userName));
-        return R.ok().put("status", opinion.getStatus());
+        return R.ok().put("status", opinion == null ? -1 : opinion.getStatus());
     }
 
     @ApiOperation(value = "登录")
@@ -246,6 +274,8 @@ public class UserController {
         temp.put("region", user.getRegion());
         temp.put("bank_name", user.getBankName());
         temp.put("bank_card", user.getBankCard());
+        temp.put("email", user.getEmail());
+        temp.put("address", user.getAddress());
         return R.ok().put("data", temp);
     }
 }

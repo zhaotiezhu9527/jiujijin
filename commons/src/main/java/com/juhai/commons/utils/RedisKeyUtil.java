@@ -21,6 +21,16 @@ public class RedisKeyUtil {
     }
 
     /**
+     * 用户提交意见 key
+     * @param userId 用户Id
+     * @return
+     */
+    public static String UserYijianKey(Object userId) {
+        String template = "user:login:yijian:{}";
+        return StrUtil.format(template, userId);
+    }
+
+    /**
      * 用户登录token key
      * @param userId 用户Id
      * @return

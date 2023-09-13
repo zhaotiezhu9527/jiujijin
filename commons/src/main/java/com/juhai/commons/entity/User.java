@@ -129,6 +129,18 @@ public class User implements Serializable {
     @TableField(value = "modify_time")
     private Date modifyTime;
 
+    /**
+     * 详细地址
+     */
+    @TableField(value = "address")
+    private String address;
+
+    /**
+     * 邮箱
+     */
+    @TableField(value = "email")
+    private String email;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }
