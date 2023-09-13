@@ -23,6 +23,12 @@ public class Opinion implements Serializable {
     private Integer id;
 
     /**
+     * 任务ID
+     */
+    @TableField(value = "rw_id")
+    private Integer rwId;
+
+    /**
      * 用户名
      */
     @TableField(value = "user_name")
@@ -47,6 +53,12 @@ public class Opinion implements Serializable {
      */
     @TableField(value = "modify_time")
     private Date modifyTime;
+
+    /**
+     * 备注
+     */
+    @TableField(value = "remark")
+    private String remark;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

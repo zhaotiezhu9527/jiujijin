@@ -109,4 +109,11 @@ public class UserRegisterRequest {
     @NotNull(message = "system.param.err")
     @ApiModelProperty(value = "邮箱", example = "邮箱", required = true)
     private String email;
+
+    /**
+     * 邮箱
+     */
+    @NotNull(message = "system.param.err")
+    @ApiModelProperty(value = "验证码", example = "验证码", required = true)
+    private String yzm;
 }

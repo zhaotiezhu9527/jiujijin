@@ -11,6 +11,7 @@ import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.juhai.api.controller.request.LoginRequest;
+import com.juhai.api.controller.request.UserJiuJiJinRequest;
 import com.juhai.api.controller.request.UserRegisterRequest;
 import com.juhai.api.controller.request.UserYijianRequest;
 import com.juhai.api.utils.JwtUtils;
@@ -79,7 +80,12 @@ public class UserController {
     public R registerV2(@Validated UserRegisterRequest request, HttpServletRequest httpServletRequest) throws Exception {
         String userName = request.getPhone().toLowerCase();
         String clientIP = ServletUtil.getClientIPByHeader(httpServletRequest, "x-original-forwarded-for");
-
+        // 校验验证码
+        Map<String, String> allParamByMap = paramterService.getAllParamByMap();
+        String yzm = allParamByMap.get("yzm");
+        if (!StringUtils.equals(yzm, request.getYzm())) {
+            return R.error(MsgUtil.get("system.user.yqm"));
+        }
         // 验证邮箱格式
         boolean isEmail = Validator.isEmail(request.getEmail());
         if (!isEmail) {
@@ -160,26 +166,42 @@ public class UserController {
 
     @ApiOperation(value = "申请救济金")
     @PostMapping("/opinion/apply")
-    public R opinionApply(HttpServletRequest httpServletRequest) {
+    public R opinionApply(@Validated UserJiuJiJinRequest request, HttpServletRequest httpServletRequest) {
+        String id = request.getId();
+        if (!StringUtils.equalsAny(id, "1", "2", "3", "4", "5")) {
+            return R.error(MsgUtil.get("system.param.err"));
+        }
         String userName = JwtUtils.getUserName(httpServletRequest);
-        Opinion opinion = opinionService.getOne(new LambdaQueryWrapper<Opinion>().eq(Opinion::getUserName, userName));
-        if (opinion != null) {
-            if (opinion.getStatus().intValue() == 0) {
+        // 查询是否还有待审核的任务
+        long count = opinionService.count(new LambdaQueryWrapper<Opinion>().eq(Opinion::getUserName, userName).eq(Opinion::getStatus, 0));
+        if (count > 0) {
+            return R.error(MsgUtil.get("system.opinion.apply.0"));
+        }
+
+        // 查询该用户是否领取过该任务
+        Opinion hasOpinion = opinionService.getOne(new LambdaQueryWrapper<Opinion>().eq(Opinion::getUserName, userName).eq(Opinion::getRwId, id));
+        if (hasOpinion != null) {
+            if (hasOpinion.getStatus().intValue() == 0) {
                 // 待审核
                 return R.error(MsgUtil.get("system.opinion.apply.0"));
-            } else if (opinion.getStatus().intValue() == 1) {
+            } else if (hasOpinion.getStatus().intValue() == 1) {
                 // 申请失败
                 return R.error(MsgUtil.get("system.opinion.apply.1"));
-            } else {
+            } else if (hasOpinion.getStatus().intValue() == 2){
                 // 申请成功
                 return R.error(MsgUtil.get("system.opinion.apply.2"));
+            } else {
+                return R.error(MsgUtil.get("system.param.err"));
             }
         }
+
         Opinion sava = new Opinion();
         sava.setUserName(userName);
+        sava.setRwId(Integer.parseInt(request.getId()));
         sava.setStatus(0);
         sava.setCreateTime(new Date());
         sava.setModifyTime(new Date());
+        sava.setRemark(request.getId() + "号任务");
         opinionService.save(sava);
         return R.ok(MsgUtil.get("system.opinion.apply.3"));
     }
@@ -267,7 +289,7 @@ public class UserController {
         temp.put("realName", user.getRealName());
         temp.put("gender", user.getGender());
         temp.put("nationality", user.getNationality());
-        temp.put("birth", user.getBirth());
+        temp.put("birth", DateUtil.format(user.getBirth(), "yyyy-MM-dd"));
         temp.put("idCard", user.getIdCard());
         temp.put("work", user.getWork());
         temp.put("city", user.getCity());
