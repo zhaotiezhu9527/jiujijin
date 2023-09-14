@@ -43,6 +43,9 @@ public class SiteConfigController {
         obj.put("onlineService", allParamByMap.get("online_service"));
         String area = allParamByMap.get("area");
         obj.put("area", JSONArray.parse(area));
+
+        String bank = allParamByMap.get("bank");
+        obj.put("bank", JSONArray.parse(bank));
         return R.ok().put("data", obj);
     }
 
