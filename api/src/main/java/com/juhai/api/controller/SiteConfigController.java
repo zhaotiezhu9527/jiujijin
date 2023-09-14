@@ -40,6 +40,8 @@ public class SiteConfigController {
     @GetMapping("/config")
     public R config(HttpServletRequest httpServletRequest) {
         JSONObject obj = new JSONObject();
+        Map<String, String> allParamByMap = paramterService.getAllParamByMap();
+        obj.put("onlineService", allParamByMap.get("online_service"));
         return R.ok().put("data", obj);
     }
 
