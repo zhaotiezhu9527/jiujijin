@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b4e9c43-ff0f-4cb8-8f37-d78d596b2ab3" name="Changes" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/SiteConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/SiteConfigController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +107,7 @@
       <updated>1694497231183</updated>
       <workItem from="1694497232260" duration="21893000" />
       <workItem from="1694660988775" duration="16000" />
-      <workItem from="1694663002077" duration="3023000" />
+      <workItem from="1694663002077" duration="3254000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1694509945234</created>
@@ -159,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694669782856</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="first commit">
+      <created>1694682951565</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694682951565</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

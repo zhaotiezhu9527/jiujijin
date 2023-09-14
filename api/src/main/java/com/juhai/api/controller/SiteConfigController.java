@@ -41,7 +41,8 @@ public class SiteConfigController {
         JSONObject obj = new JSONObject();
         Map<String, String> allParamByMap = paramterService.getAllParamByMap();
         obj.put("onlineService", allParamByMap.get("online_service"));
-        obj.put("area", JSONArray.parse("area"));
+        String area = allParamByMap.get("area");
+        obj.put("area", JSONArray.parse(area));
         return R.ok().put("data", obj);
     }
 
