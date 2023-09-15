@@ -1,5 +1,6 @@
 package com.juhai.api.controller;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.lang.Validator;
 import cn.hutool.core.map.MapUtil;
@@ -23,6 +24,7 @@ import com.juhai.commons.service.*;
 import com.juhai.commons.utils.MsgUtil;
 import com.juhai.commons.utils.R;
 import com.juhai.commons.utils.RedisKeyUtil;
+import io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueue;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -39,9 +41,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -189,7 +189,7 @@ public class UserController {
                 return R.error(MsgUtil.get("system.opinion.apply.1"));
             } else if (hasOpinion.getStatus().intValue() == 2){
                 // 申请成功
-                return R.error(MsgUtil.get("system.opinion.apply.2"));
+                return R.error(MsgUtil.get("system.opinion.apply.2") + id);
             } else {
                 return R.error(MsgUtil.get("system.param.err"));
             }
@@ -210,8 +210,27 @@ public class UserController {
     @PostMapping("/opinion/schedule")
     public R opinionSchedule(HttpServletRequest httpServletRequest) {
         String userName = JwtUtils.getUserName(httpServletRequest);
-        Opinion opinion = opinionService.getOne(new LambdaQueryWrapper<Opinion>().eq(Opinion::getUserName, userName));
-        return R.ok().put("status", opinion == null ? -1 : opinion.getStatus());
+
+        List<Opinion> list = opinionService.list(new LambdaQueryWrapper<Opinion>().eq(Opinion::getUserName, userName).orderByDesc(Opinion::getCreateTime));
+        if (CollUtil.isEmpty(list)) {
+            return R.ok().put("msg", "Chưa có hồ sơ nào đang xữ lý");
+        }
+        Opinion opinion = list.get(0);
+        Map<Integer, String> rwMap = new HashMap<>();
+        rwMap.put(1, "1");
+        rwMap.put(2, "2");
+        rwMap.put(3, "3");
+        rwMap.put(4, "SoS cấp cứu khẩn cấp");
+        rwMap.put(5, "Trợ giúp y tế");
+
+        Map<Integer, String> map = new HashMap<>();
+        // 审核中
+        map.put(0, "Yêu cầu nhận lại gói an sinh lần " + rwMap.get(opinion.getRwId()) + " ，Yêu cầu của bạn đang được  xem xét");
+        // 成功
+        map.put(1, "Yêu cầu nhận lại gói an sinh lần " + rwMap.get(opinion.getRwId()) + " ，Đã nhận gói an sinh");
+        // 失败
+        map.put(2, "Yêu cầu nhận lại gói an sinh lần " + rwMap.get(opinion.getRwId()) + " ，Yêu cầu của bạn không được duyệt");
+        return R.ok().put("msg", map.get(opinion.getStatus()));
     }
 
     @ApiOperation(value = "登录")
