@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4b4e9c43-ff0f-4cb8-8f37-d78d596b2ab3" name="Changes" comment="修改文字">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/resources/i18n/messages_vi_VN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/i18n/messages_vi_VN.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +108,7 @@
       <updated>1694497231183</updated>
       <workItem from="1694497232260" duration="21893000" />
       <workItem from="1694660988775" duration="16000" />
-      <workItem from="1694663002077" duration="11298000" />
+      <workItem from="1694663002077" duration="12298000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1694509945234</created>
@@ -194,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694760201405</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修改文字">
+      <created>1694760779003</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694760779003</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
