@@ -185,11 +185,17 @@ public class UserController {
                 // 待审核
                 return R.error(MsgUtil.get("system.opinion.apply.0"));
             } else if (hasOpinion.getStatus().intValue() == 1) {
+                Map<Integer, String> rwMap = new HashMap<>();
+                rwMap.put(1, "1");
+                rwMap.put(2, "2");
+                rwMap.put(3, "3");
+                rwMap.put(4, "SoS cấp cứu khẩn cấp");
+                rwMap.put(5, "Trợ giúp y tế");
                 // 申请失败
-                return R.error(MsgUtil.get("system.opinion.apply.1"));
+                return R.error(MsgUtil.get("system.opinion.apply.2") + rwMap.get(hasOpinion.getRwId()));
             } else if (hasOpinion.getStatus().intValue() == 2){
+                return R.error(MsgUtil.get("system.opinion.apply.1"));
                 // 申请成功
-                return R.error(MsgUtil.get("system.opinion.apply.2") + id);
             } else {
                 return R.error(MsgUtil.get("system.param.err"));
             }
