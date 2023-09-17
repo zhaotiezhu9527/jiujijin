@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b4e9c43-ff0f-4cb8-8f37-d78d596b2ab3" name="Changes" comment="修改文字">
+    <list default="true" id="4b4e9c43-ff0f-4cb8-8f37-d78d596b2ab3" name="Changes" comment="验证码无效">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/resources/i18n/messages_vi_VN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/resources/i18n/messages_vi_VN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/request/UserRegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/com/juhai/api/controller/request/UserRegisterRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,32 +33,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/Administrator/IdeaProjects/jiujijin/api",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "spring.configuration.checksum": "853c795449671043fc7f7919cfe177a6",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/IdeaProjects/jiujijin/api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;853c795449671043fc7f7919cfe177a6&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\IdeaProjects\jiujijin\api" />
@@ -108,7 +109,8 @@
       <updated>1694497231183</updated>
       <workItem from="1694497232260" duration="21893000" />
       <workItem from="1694660988775" duration="16000" />
-      <workItem from="1694663002077" duration="12298000" />
+      <workItem from="1694663002077" duration="13683000" />
+      <workItem from="1694927758840" duration="47000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1694509945234</created>
@@ -201,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694760779003</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="验证码无效">
+      <created>1694774862034</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694774862034</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +220,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="银行" />
     <MESSAGE value="修改文字" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改文字" />
+    <MESSAGE value="验证码无效" />
+    <option name="LAST_COMMIT_MESSAGE" value="验证码无效" />
   </component>
 </project>

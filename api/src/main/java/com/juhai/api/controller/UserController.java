@@ -86,11 +86,14 @@ public class UserController {
         if (!StringUtils.equals(yzm, request.getYzm())) {
             return R.error(MsgUtil.get("system.user.yqm"));
         }
-        // 验证邮箱格式
-        boolean isEmail = Validator.isEmail(request.getEmail());
-        if (!isEmail) {
-            return R.error(MsgUtil.get("validation.user.email"));
+        if (StringUtils.isNotBlank(request.getEmail())) {
+            // 验证邮箱格式
+            boolean isEmail = Validator.isEmail(request.getEmail());
+            if (!isEmail) {
+                return R.error(MsgUtil.get("validation.user.email"));
+            }
         }
+
         // 查询用户名是否存在
         long exist = userService.count(new LambdaQueryWrapper<User>().eq(User::getUserName, userName));
         if (exist > 0) {

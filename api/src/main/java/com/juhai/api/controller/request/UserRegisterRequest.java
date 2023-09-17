@@ -106,7 +106,7 @@ public class UserRegisterRequest {
     /**
      * 邮箱
      */
-    @NotNull(message = "system.param.err")
+//    @NotNull(message = "system.param.err")
     @ApiModelProperty(value = "邮箱", example = "邮箱", required = true)
     private String email;
 
